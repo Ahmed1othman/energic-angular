@@ -26,7 +26,7 @@ export default function WhyEnergicSection() {
       <Container>
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-[#00A79D] text-[32px] font-bold mb-6">Why Energic</h2>
+          <h2 className="text-[#00A79D] text-[24px] font-semibold  mb-3">Why Energic</h2>
           <p className="text-[#1A3B39] text-[16px] font-regular leading-relaxed mx-auto">
             ENERGIC is building the EV charging platform for the new generation of operators. Not just hardware. Not just software. We deliver the infrastructure backbone for smarter, faster, and more scalable electrification-where it matters most. With nearly 200,000 chargers connected across North America, MENA, and India, ENERGIC proves that scale and reliability can go hand in hand from day one. We empower the builders of tomorrow&apos;s EV networks operators, developers, fleets, cities, and innovators.
           </p>

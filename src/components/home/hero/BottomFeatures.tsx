@@ -17,12 +17,12 @@ const features = [
 
 const BottomFeatures = () => {
   return (
-    <div className="lg:w-[55%] mx-auto my-8 lg:my-0 lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2">
-        <div className="flex flex-col lg:flex-row items-evenly justify-center gap-8">
+    <div className="relative z-20 lg:w-[70%] mx-auto my-8 lg:my-0 lg:absolute lg:-bottom-20 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2">
+        <div className="flex flex-col lg:flex-row items-evenly justify-center gap-8 ">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 p-3 rounded-xl bg-white bg-opacity-80 flex-1"
+              className="flex items-center gap-4 px-5 py-3 rounded-xl bg-white bg-opacity-80 flex-1"
             >
               <div className="flex-shrink-0">
                 <div className="bg-[#00A79D] rounded-lg">
@@ -34,9 +34,9 @@ const BottomFeatures = () => {
                   />
                 </div>
               </div>
-              <div>
+              <div className='w-full'>
                 <h3 className="text-[24px] font-semibold text-[#00A79D]">{feature.title}</h3>
-                <p className="font-regular text-[16px] text-[#00A79D]">{feature.description}</p>
+                <p className="font-regular text-[16px] text-[#00A79D] lg:w-8/10">{feature.description}</p>
               </div>
             </div>
           ))}

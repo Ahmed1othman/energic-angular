@@ -9,6 +9,7 @@ import ProvideSection from "@/components/home/ProvideSection";
 import CoreValueSection from "@/components/home/CoreValueSection";
 import Footer from "@/components/layout/Footer";
 import SatisfiedUsers from "@/components/home/SatisfiedUsers";
+import SocialMediaSection from "@/components/home/SocialMediaSection";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <CoreValueSection />
       <ProvideSection />
       <SatisfiedUsers />
+      <SocialMediaSection />
       <Footer />
     </main>
   );

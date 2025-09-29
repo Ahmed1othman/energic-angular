@@ -1,13 +1,14 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Container from '../layout/Container';
+import Container from "../layout/Container";
+import SectionHeaderOne from "../shared/SectionHeaderOne";
 
 const values = [
   { icon: '/core_sec_icon_1.png', title: 'Innovation', description: 'We foster a culture of creativity and forward-thinking to pioneer the future of electric mobility.' },
   { icon: '/core_sec_icon_2.png', title: 'Passion', description: 'Our passion for a sustainable future drives us to deliver our best work every day.' },
   { icon: '/core_sec_icon_3.png', title: 'Collaboration', description: 'We believe in the power of teamwork and partnership to achieve shared goals.' },
-  { icon: '/core_sec_icon_4.png', title: 'Sustainability', description: 'We are committed to environmentally friendly practices in all aspects of our business.' },
+  { icon: '/core_sec_icon_4.png', title: 'Sustainability', description: 'We are committed to sustainable practices that protect our planet for future generations.' },
   { icon: '/core_sec_icon_5.png', title: 'Customer-Centricity', description: 'Our customers are at the heart of everything we do; their satisfaction is our top priority.' },
 ];
 
@@ -22,12 +23,11 @@ const CoreValueSection = () => {
     <section className="py-16 bg-[#E6F7F6]">
       <Container>
         {/* Header */}
-        <div className="mb-12">
-          <h2 className="text-[#00A79D] text-[24px] font-semibold text-start">Our Core Values</h2>
-          <p className="text-[#1A3B39] text-[16px] font-regular mt-2 text-start max-w-4xl">
-            At Energic, our values drive innovation, sustainability, and exceptional customer service. These core principles shape our mission to lead the electric mobility revolution with passion and collaboration.
-          </p>
-        </div>
+        <SectionHeaderOne
+          title="Our Core Values"
+          description="At Energic, our values drive innovation, sustainability, and exceptional customer service. These core principles shape our mission to lead the electric mobility revolution with passion and collaboration."
+          className="mb-12"
+        />
 
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 justify-evenly items-center gap-4">
