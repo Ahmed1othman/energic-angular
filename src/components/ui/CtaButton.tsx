@@ -1,4 +1,3 @@
-import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 
 interface CtaButtonProps {
@@ -7,36 +6,25 @@ interface CtaButtonProps {
   leftClassName?: string;
   rightClassName?: string;
   slantWidth?: number;
+  variant?: 'solid' | 'outline';
 }
 
 const CtaButton: React.FC<CtaButtonProps> = ({ 
   children, 
   className = '', 
-  leftClassName = '', 
-  rightClassName = '',
-  slantWidth = 24 // Default slant width in pixels
+  variant = 'solid',
 }) => {
+  const baseStyles = 'inline-flex items-center p-[10px] gap-[10px] text-[13px] font-medium rounded-[6px] transition-all duration-500 ease-in-out';
+  
+  const variantStyles = {
+    solid: 'bg-primary text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-dark',
+    outline: 'bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white'
+  };
+
   return (
-    <div 
-      className={`flex items-center cursor-pointer group ${className}`}
-      style={{ '--slant-width': `${slantWidth}px` } as React.CSSProperties}
-    >
-      <div 
-        className={`flex items-center justify-center pl-6 pr-8 h-[46px] text-white bg-[linear-gradient(90deg,#00A79D_0%,#1A3B39_89.69%)] shadow-md rounded-lg ${leftClassName}`}
-        style={{ clipPath: 'polygon(0% 0%, 100% 0%, calc(100% - var(--slant-width)) 100%, 0% 100%)' }}
-      >
-        <span>{children}</span>
-      </div>
-      <div 
-        className={`flex items-center justify-center px-5 h-[46px] text-white bg-[linear-gradient(-90deg,#00A79D_0%,#1A3B39_100%)] shadow-md rounded-lg transition-transform duration-300 ease-in-out group-hover:translate-x-2 ${rightClassName}`}
-        style={{
-          clipPath: 'polygon(var(--slant-width) 0%, 100% 0%, 100% 100%, 0% 100%)',
-          marginLeft: `calc(-1 * var(--slant-width) + 2px)` // Adjust overlap relative to slant
-        }}
-      >
-        <ArrowRightIcon className="w-[24px] h-[24px] text-white ps-2" />
-      </div>
-    </div>
+    <button className={`${baseStyles} ${variantStyles[variant]} ${className}`}>
+      {children}
+    </button>
   );
 };
 

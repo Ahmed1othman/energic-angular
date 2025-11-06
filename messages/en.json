@@ -1,0 +1,282 @@
+{
+  "navbar": {
+    "solutions": "Solutions",
+    "resources": "Resources",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "enquire": "Enquire Now",
+    "language": {
+      "en": "EN",
+      "ar": "AR",
+      "arabic": "Arabic",
+      "english": "English"
+    }
+  },
+  "Home": {
+    "title": "Home Page"
+  },
+  "hero": {
+    "title": "The Complete EV Charging Software Platform",
+    "subtitle": "POWER OUR PARTNERS, POWER THE FUTURE",
+    "description": "Control, monitor, and optimize every charging point with our intelligent software designed for flexibility and growth.",
+    "buttonText": "Get a Demo",
+    "communityText": "Join 2000+, others who get a quotation"
+  },
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "subtitle": "Trusted by industry leaders worldwide",
+    "testimonials": [
+      {
+        "name": "Sarah Johnson",
+        "role": "Fleet Manager",
+        "company": "GreenTech Solutions",
+        "image": "/testimonial.png",
+        "content": "Energic has revolutionized our EV charging infrastructure. The platform is intuitive, reliable, and has significantly improved our operational efficiency.",
+        "rating": 5
+      },
+      {
+        "name": "Michael Chen",
+        "role": "Operations Director",
+        "company": "EcoDrive Corp",
+        "image": "/testimonial.png",
+        "content": "The best investment we've made for our charging network. Real-time monitoring and predictive maintenance have reduced our downtime by 40%.",
+        "rating": 5
+      },
+      {
+        "name": "Emma Rodriguez",
+        "role": "Sustainability Manager",
+        "company": "Future Mobility Ltd",
+        "image": "/testimonial.png",
+        "content": "Outstanding platform with exceptional support. The analytics and reporting features help us make data-driven decisions for our growing network.",
+        "rating": 5
+      },
+      {
+        "name": "David Thompson",
+        "role": "CTO",
+        "company": "ChargePoint Pro",
+        "image": "/testimonial.png",
+        "content": "Scalable, secure, and feature-rich. Energic grows with our business and adapts to our evolving needs seamlessly.",
+        "rating": 5
+      }
+    ]
+  },
+  "aboutUs": {
+    "hero": {
+      "title": "Driving the Future of Electric Mobility",
+      "subtitle": "ABOUT COMPANY",
+      "description": "We are committed to revolutionizing the electric vehicle charging industry with innovative solutions that power sustainable transportation.",
+      "buttonText": "Learn More"
+    },
+    "aboutCompany": {
+      "title": "About Company",
+      "description": "We are a leading provider of innovative EV charging solutions, dedicated to accelerating the transition to sustainable transportation. Our cutting-edge technology and comprehensive platform empower businesses to build, manage, and scale their charging infrastructure with confidence.",
+      "vision": {
+        "title": "Our Vision",
+        "description": "To create a world where electric mobility is accessible, efficient, and sustainable for everyone."
+      },
+      "mission": {
+        "title": "Our Mission",
+        "description": "To provide intelligent charging solutions that drive the future of electric transportation."
+      }
+    },
+    "ourValues": {
+      "title": "Our Values",
+      "values": [
+        {
+          "title": "Innovation",
+          "description": "We continuously push boundaries to develop cutting-edge EV charging solutions that meet the evolving needs of the industry."
+        },
+        {
+          "title": "Sustainability",
+          "description": "We are committed to creating eco-friendly solutions that contribute to a cleaner, greener future for generations to come."
+        },
+        {
+          "title": "Excellence",
+          "description": "We strive for excellence in everything we do, delivering high-quality products and exceptional service to our customers."
+        }
+      ]
+    },
+    "team": {
+      "members": [
+        {
+          "name": "Jackson Wang",
+          "role": "CEO",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop"
+        },
+        {
+          "name": "Mahaboob Hussain",
+          "role": "CTO",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop"
+        }
+      ]
+    },
+    "globalStats": {
+      "activeUsers": {
+        "label": "Active Users",
+        "value": "23,56,000"
+      },
+      "totalStations": {
+        "label": "Total Stations",
+        "value": "43,000"
+      },
+      "totalDevices": {
+        "label": "Total Device",
+        "value": "10,40,000"
+      },
+      "totalConnectors": {
+        "label": "Total Connectors",
+        "value": "58,12,000"
+      },
+      "message": "We've provided over 1 Million Devices across the US & Saudi.",
+      "locations": [
+        {
+          "name": "Riyadh",
+          "value": "14,333",
+          "flag": "/home/about_us/global_stats_section/sa_flag.png"
+        },
+        {
+          "name": "Miami Florida",
+          "value": "14,333",
+          "flag": "/home/about_us/global_stats_section/usa_flag.png"
+        },
+        {
+          "name": "Cairo",
+          "value": "14,333",
+          "flag": "/home/about_us/global_stats_section/egypt_flag.png"
+        }
+      ]
+    },
+    "impact": {
+      "title": "Explore the Impact of Our Smart Charging Solutions",
+      "description": "Explore how our intelligent software solutions are transforming EV charging experiences and driving innovation worldwide.",
+      "buttonText": "View Our Case Studies"
+    }
+  },
+  "contactUs": {
+    "hero": {
+      "title": "Speak with an expert,",
+      "subtitle": "Contact us.",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when is simply dummy text of the printing and typesetting industry."
+    },
+    "form": {
+      "title": "Let our team call you back within the hour.",
+      "name": {
+        "label": "Enter Name",
+        "placeholder": "Enter your name",
+        "required": "Name is required",
+        "minLength": "Name must be at least 2 characters"
+      },
+      "email": {
+        "label": "Enter Email id",
+        "placeholder": "Enter your email",
+        "required": "Email is required",
+        "invalid": "Please enter a valid email address"
+      },
+      "phone": {
+        "label": "Enter Phone Number",
+        "placeholder": "Enter your phone number",
+        "required": "Phone number is required",
+        "invalid": "Please enter a valid phone number"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Enter your message"
+      },
+      "submit": "Send",
+      "submitting": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "info": {
+      "email": "info@energic.com",
+      "copyButton": "Copy My Email",
+      "copySuccess": "Email copied to clipboard!",
+      "copyError": "Failed to copy email"
+    },
+    "locations": {
+      "title": "We are in",
+      "saudiArabia": {
+        "name": "Saudi Arabia",
+        "address": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+        "phone": "+966 (0) 11 234 5678"
+      },
+      "shanghai": {
+        "name": "Shanghai",
+        "address": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+        "phone": "+86 (0) 21 1234 5678"
+      },
+      "india": {
+        "name": "India",
+        "address": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+        "phone": "+91 (0) 11 2345 6789"
+      },
+      "egypt": {
+        "name": "Egypt",
+        "address": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+        "phone": "+20 (0) 2 1234 5678"
+      },
+      "brazil": {
+        "name": "Brazil",
+        "address": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+        "phone": "+55 (0) 11 1234 5678"
+      },
+      "oman": {
+        "name": "Oman",
+        "address": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+        "phone": "+968 (0) 24 123 456"
+      }
+    },
+    "footer": {
+      "businessEnquiry": "Business Enquiry",
+      "customerSupport": "Customer Support"
+    }
+  },
+  "energicControl": {
+    "hero": {
+      "title": "Energic Control",
+      "subtitle": "Complete Control Over Your EV Charging Network",
+      "description": "Manage, monitor, and optimize your entire EV charging infrastructure from a single, powerful platform."
+    },
+    "features": {
+      "title": "Key Features",
+      "realTimeMonitoring": {
+        "title": "Real-Time Monitoring",
+        "description": "Track charging sessions, power consumption, and station status in real-time."
+      },
+      "remoteManagement": {
+        "title": "Remote Management",
+        "description": "Control and configure your charging stations from anywhere, anytime."
+      },
+      "analytics": {
+        "title": "Advanced Analytics",
+        "description": "Get detailed insights into usage patterns, revenue, and performance metrics."
+      },
+      "userManagement": {
+        "title": "User Management",
+        "description": "Manage users, access rights, and billing with ease."
+      }
+    },
+    "benefits": {
+      "title": "Why Choose Energic Control",
+      "efficiency": {
+        "title": "Increased Efficiency",
+        "description": "Optimize charging operations and reduce downtime."
+      },
+      "scalability": {
+        "title": "Scalable Solution",
+        "description": "Grow your network seamlessly with our flexible platform."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Get expert assistance whenever you need it."
+      }
+    },
+    "cta": {
+      "title": "Ready to Take Control?",
+      "description": "Start managing your EV charging network more efficiently today.",
+      "button": "Get Started"
+    }
+  }
+}

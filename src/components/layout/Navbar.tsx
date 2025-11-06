@@ -1,131 +1,166 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter, usePathname } from 'next/navigation';
 import CtaButton from '../ui/CtaButton';
-import Container from './Container';
 
+
+import { Globe, ChevronDown } from 'lucide-react';
 
 const navLinks = [
-  { name: 'Home', href: '#' },
-  {
-    name: 'Solutions',
-    href: '/solutions',
-    submenu: [
-      { name: 'Drive with Energic', href: '#' },
-      { name: 'Power Your Business', href: '#' },
-    ],
-  },
-  {
-    name: 'Products',
-    href: '#',
-    submenu: [
-      { name: 'Energic Control', href: '#' },
-      { name: 'Energic ChargeX', href: '#' },
-    ],
-  },
-  { name: 'Software', href: '#' },
-  { name: 'About us', href: '#' },
+  { key: 'solutions', href: '/solutions/energic-control' },
+  { key: 'resources', href: '#' },
+  { key: 'about', href: '/about-us' },
+  { key: 'contact', href: '/contact-us' },
 ];
-
-import { useEffect, useRef } from 'react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const navRef = useRef<HTMLDivElement>(null);
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const t = useTranslations('navbar');
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  // Click outside to close dropdown
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setOpenDropdown(null);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  const languages = [
+    { code: 'en', name: t('language.english') },
+    { code: 'ar', name: t('language.arabic') },
+  ];
   return (
       // Set positioning and full-width container for the fixed header
-      <header className="fixed top-[48px] left-0 right-0 z-50">
-        <Container>
+      <header className="fixed top-[24px] left-0 right-0 rounded-[12px] max-w-[1280px] z-50 px-4 lg:px-8 mx-auto">
+        <div className="container mx-auto">
           <nav 
-          className="w-full h-[70px] p-3 bg-[#FFFFFF70] backdrop-blur-lg rounded-xl border border-[#2dd4bf]/50 drop-shadow-[0px_0px_12px_#00000014]"
+          className="bg-white/20 backdrop-blur-sm h-[60px] rounded-[12px] p-[12px] shadow-[0px_0px_12px_0px_#00000014] flex items-center justify-between"
         >
-          <div className="flex items-center justify-between h-full">
+          {/* Left side: Logo + Navigation Links */}
+          <div className="flex items-center gap-12">
             {/* Logo */}
-            <div className="text-black font-bold text-2xl">
-              <Image src="/logo.png" alt="Logo" width={204} height={36} />
-            </div>
+            <Link href={`/${locale}`} className="flex-shrink-0">
+              <Image src="/logos/energic_logo_nav.svg" alt="Logo" width={150} height={26} />
+            </Link>
 
-            {/* Navigation Links */}
-            <div ref={navRef} className="hidden md:flex items-center space-x-8">
+            {/* Desktop Navigation Links */}
+            <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
-                <div key={link.name} className="relative">
-                  <button
-                    onClick={() =>
-                      link.submenu &&
-                      setOpenDropdown(openDropdown === link.name ? null : link.name)
-                    }
-                    className={`flex items-center  gap-1 text-black/80 text-[14px] font-[500] py-2 px-2 border-b-2 border-transparent hover:text-white hover:border-white transition-colors ${openDropdown === link.name ? 'text-white border-white' : ''}`}
-                  >
-                    {link.name}
-                    {link.submenu && (
-                      <svg className={`w-4 h-4 transition-transform ${openDropdown === link.name ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                    )}
-                  </button>
-                  {/* Dropdown Panel - Now relative to the parent button */}
-                  {link.submenu && openDropdown === link.name && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-60  bg-[#FFFFFF70] rounded-xl border-[#2dd4bf]/50 drop-shadow-[0px_0px_12px_#00000014] p-2 mt-5">
-                      <div className="grid grid-cols-1 gap-1">
-                        {link.submenu.map(item => (
-                          <a key={item.name} href={item.href} className="text-start block px-4 py-2 border-l-3 border-l-transparent hover:border-l-[#2dd4bf]/70 text-gray-800 hover:bg-white/50 rounded-md font-medium">
-                            {item.name}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
+                link.href.startsWith('#') ? (
+                  <a key={link.key} href={link.href} className="text-gray-600 hover:text-primary transition-colors font-medium">
+                    {t(link.key)}
+                  </a>
+                ) : (
+                  <Link key={link.key} href={`/${locale}${link.href}`} className="text-gray-600 hover:text-primary transition-colors font-medium">
+                    {t(link.key)}
+                  </Link>
+                )
               ))}
             </div>
+          </div>
 
-            {/* Contact Us Button */}
-            <div className="hidden md:flex">
-              <CtaButton>Contact us</CtaButton>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button className="text-black" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
+          {/* Right side controls */}
+          <div className="hidden md:flex items-center gap-6">
+            {/* Language Switcher */}
+            <div className="relative items-center">
+              <button 
+                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                className="flex items-center text-gray-600 hover:text-primary transition-colors"
+              >
+                <Globe size={20} />
+                <span className="ms-2 font-medium">{t(`language.${locale}`)}</span>
+                <ChevronDown size={16} className={`transition-transform ${isLangMenuOpen ? 'rotate-180' : ''}`} />
               </button>
+              
+              {/* Language Dropdown Menu */}
+              {isLangMenuOpen && (
+                <div className="absolute top-full right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setIsLangMenuOpen(false);
+                        const normalized = pathname.replace(/^\/([a-z]{2})(\/|$)/, '/');
+                        router.push(`/${lang.code}${normalized}`);
+                      }}
+                      className={`w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors ${
+                        locale === lang.code ? 'text-primary font-semibold' : 'text-gray-700'
+                      }`}
+                    >
+                      {lang.name}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
+
+            {/* Enquire Now Button */}
+            <CtaButton>{t('enquire')}</CtaButton>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button className="text-gray-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
           </div>
         </nav>
 
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden w-full bg-[#FFFFFF70] backdrop-blur-lg rounded-xl border border-[#2dd4bf]/50 p-4 mt-2">
-            <div className="flex flex-col items-center space-y-4">
+          <div className="md:hidden bg-white rounded-xl shadow-[0px_0px_12px_0px_#00000014] p-4 mt-2">
+            <div className="flex flex-col items-start space-y-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`text-black/80 text-[14px] font-[500] py-2 px-2 border-b border-transparent hover:text-white hover:border-white transition-colors ${link.name === 'Home' ? 'text-white font-semibold' : ''}`}>
-                  {link.name}
-                </a>
+                link.href.startsWith('#') ? (
+                  <a key={link.key} href={link.href} className="text-gray-600 hover:text-primary transition-colors font-medium">
+                    {t(link.key)}
+                  </a>
+                ) : (
+                  <Link key={link.key} href={`/${locale}${link.href}`} className="text-gray-600 hover:text-primary transition-colors font-medium">
+                    {t(link.key)}
+                  </Link>
+                )
               ))}
-              <CtaButton>Contact us</CtaButton>
+              <div className="border-t w-full my-2"></div>
+              <div className="relative w-full">
+                <button 
+                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                  className="flex items-center text-gray-600 hover:text-primary w-full text-left"
+                >
+                  <Globe size={20} />
+                  <span className="ml-2 font-medium">{t(`language.${locale}`)}</span>
+                  <ChevronDown size={16} className={`transition-transform ${isLangMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {/* Mobile Language Dropdown Menu */}
+                {isLangMenuOpen && (
+                  <div className="mt-2 w-full bg-gray-50 rounded-lg py-2">
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => {
+                          setIsLangMenuOpen(false);
+                          const normalized = pathname.replace(/^\/([a-z]{2})(\/|$)/, '/');
+                          router.push(`/${lang.code}${normalized}`);
+                        }}
+                        className={`w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors ${
+                          locale === lang.code ? 'text-primary font-semibold' : 'text-gray-700'
+                        }`}
+                      >
+                        {lang.name}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <CtaButton>{t('enquire')}</CtaButton>
             </div>
           </div>
         )}
-      </Container>
+      </div>
     </header>
   );
 };
